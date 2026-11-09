@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Baixador de Mídia do Mercado Livre</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="scan.js" defer></script>
+    <script src="hls.js" defer></script>
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <section id="selection" class="screen">
+      <header class="topbar">
+        <h1 class="brand">
+          <img src="icons/icon-32.png" width="28" height="28" alt="">
+          Baixador de Mídia do Mercado Livre
+        </h1>
+        <button id="refresh" class="icon" aria-label="Atualizar lista" title="Atualizar lista">↻</button>
+      </header>
+      <div class="listing" id="listing" hidden>
+        <img id="cover" alt="" referrerpolicy="no-referrer" hidden>
+        <div><strong id="title"></strong><small id="code"></small></div>
+      </div>
+      <nav class="tabs" aria-label="Tipo de mídia">
+        <button id="photos" aria-pressed="true">Fotos · 0</button>
+        <button id="videos" aria-pressed="false">Vídeos · 0</button>
+      </nav>
+      <main class="content">
+        <p id="status" role="status"></p>
+        <div class="toolbar" id="toolbar" hidden>
+          <label><input id="select-all" type="checkbox"> Selecionar todas</label>
+          <span id="count"></span>
+        </div>
+        <ul id="items" class="grid"></ul>
+        <div id="video-options" hidden>
+          <p>Nenhuma mídia de vídeo foi detectada. Se houver um vídeo, abra-o no anúncio e atualize a lista.</p>
+        </div>
+      </main>
+      <footer>
+        <button id="download" class="primary" disabled>Baixar selecionadas</button>
+        <small class="credit">Desenvolvido por Caio Vinícius</small>
+      </footer>
+    </section>
+
+    <section id="transfer" class="screen" hidden>
+      <header class="topbar">
+        <h1 id="transfer-title">↓ Baixando mídia</h1>
+        <span id="transfer-count" class="badge"></span>
+      </header>
+      <div class="progress-panel">
+        <strong id="percent"></strong>
+        <progress id="progress" max="100" value="0" aria-label="Progresso geral"></progress>
+        <p id="transfer-status" role="status"></p>
+      </div>
+      <main class="content">
+        <h2>Arquivos</h2>
+        <ul id="queue" class="queue"></ul>
+        <p id="destination" class="info"></p>
+      </main>
+      <footer>
+        <button id="back" class="primary" disabled>Voltar à galeria</button>
+        <small class="credit">Desenvolvido por Caio Vinícius</small>
+      </footer>
+    </section>
+
+    <template id="media-card">
+      <li class="card">
+        <div class="thumbnail"></div>
+        <input class="pick" type="checkbox">
+        <div class="caption">
+          <button class="icon" title="Baixar">
+            <svg width="22" height="22" viewBox="0 0 400 400" fill="none" stroke-width="40"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M200 40v209m-86-86 86 86 86-86" stroke="#43bfb5"/>
+              <path d="M40 262v62a36 36 0 0 0 36 36h248a36 36 0 0 0 36-36v-62" stroke="#ffe36e"/>
+            </svg>
+          </button>
+        </div>
+      </li>
+    </template>
+  </body>
+</html>

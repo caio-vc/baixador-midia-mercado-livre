@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Baixador de Mídia do Mercado Livre",
+  "version": "1.0",
+  "author": "Caio Vinícius",
+  "description": "Baixes vídeos e fotos de anúncios do Mercado Livre.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads"
+  ],
+  "optional_host_permissions": [
+    "https://video-vod-clips.mms.mlstatic.com/*"
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Baixador de Mídia do Mercado Livre",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; img-src 'self' https://*.mlstatic.com; connect-src https://video-vod-clips.mms.mlstatic.com"
+  }
+}
